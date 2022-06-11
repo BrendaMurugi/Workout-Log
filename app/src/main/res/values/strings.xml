@@ -7,4 +7,7 @@
     <string name="first_name">First Name</string>
     <string name="create_your_account">CREATE YOUR ACCOUNT</string>
     <string name="already_have_an_account_login">Already have an account? <u>Login</u></string>
+    <string name="plan">Plan</string>
+    <string name="track">Track</string>
+    <string name="profile">profile</string>
 </resources>

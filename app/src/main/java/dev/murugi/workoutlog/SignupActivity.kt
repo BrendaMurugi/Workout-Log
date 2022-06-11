@@ -69,8 +69,14 @@ class SignupActivity : AppCompatActivity() {
         if (confirmPass.isBlank()){
             tilConfirmPassword2.error = "Confirm your password"
         }
+        if (password.length < 8){
+            tilPassword2.error = "Minimum password characters allowed is 8"
+        }
+        if (password.length > 16){
+            tilPassword2.error = "Maximum password characters allowed is 16"
+        }
         if (password != confirmPass){
-            tilConfirmPassword2.error = "Password does not match"
+            tilConfirmPassword2.error = "Passwords do not match"
         }
     }
 }
