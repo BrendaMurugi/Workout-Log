@@ -7,76 +7,56 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import dev.murugi.workoutlog.databinding.ActivitySignupBinding
 
 class SignupActivity : AppCompatActivity() {
-    lateinit var tilFirstName: TextInputLayout
-    lateinit var etFirstName: TextInputEditText
-    lateinit var tilSecondname: TextInputLayout
-    lateinit var etLastname: TextInputEditText
-    lateinit var tilEmail: TextInputLayout
-    lateinit var etEmail: TextInputEditText
-    lateinit var tilPassword2: TextInputLayout
-    lateinit var etpassword2: TextInputEditText
-    lateinit var tilConfirmPassword2: TextInputLayout
-    lateinit var etConfirmpassword: TextInputEditText
-    lateinit var btnSignup: Button
-    lateinit var tvSignupLink: TextView
+     lateinit var binding: ActivitySignupBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+        binding = ActivitySignupBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tilFirstName = findViewById(R.id.tilFirstName)
-        etFirstName = findViewById(R.id.etFirstName)
-        tilSecondname = findViewById(R.id.tilSecondname)
-        etLastname = findViewById(R.id.etLastname)
-        tilEmail = findViewById(R.id.tilEmail)
-        etEmail = findViewById(R.id.etEmail)
-        tilPassword2 = findViewById(R.id.tilPassword2)
-        etpassword2 = findViewById(R.id.etpassword2)
-        tilConfirmPassword2 = findViewById(R.id.tilConfirmPassword2)
-        etConfirmpassword = findViewById(R.id.etConfirmpassword2)
-        btnSignup = findViewById(R.id.btnSignup)
-        tvSignupLink = findViewById(R.id.tvSignupLink)
 
-        tvSignupLink.setOnClickListener {
+
+        binding.tvSignupLink.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        btnSignup.setOnClickListener {
+        binding.btnSignup.setOnClickListener {
             validateSignUp()
         }
     }
     fun validateSignUp(){
-        var name1 = etFirstName.text.toString()
-        var name2 = etLastname.text.toString()
-        var email = etEmail.text.toString()
-        var password = etpassword2.text.toString()
-        var confirmPass = etConfirmpassword.text.toString()
+        var name1 = binding.etFirstName.text.toString()
+        var name2 = binding.etLastname.text.toString()
+        var email = binding.etEmail.text.toString()
+        var password = binding.etpassword2.text.toString()
+        var confirmPass = binding.etConfirmpassword2.text.toString()
 
         if (name1.isBlank()){
-            tilFirstName.error = "First name is required"
+            binding.tilFirstName.error = "First name is required"
         }
         if (name2.isBlank()){
-            tilSecondname.error = "Second name is required"
+            binding.tilSecondname.error = "Second name is required"
         }
         if (email.isBlank()){
-            tilEmail.error = "Email is required"
+            binding.tilEmail.error = "Email is required"
         }
         if (password.isBlank()){
-            tilPassword2.error = "Password is required"
+            binding.tilPassword2.error = "Password is required"
         }
         if (confirmPass.isBlank()){
-            tilConfirmPassword2.error = "Confirm your password"
+            binding.tilConfirmPassword2.error = "Confirm your password"
         }
         if (password.length < 8){
-            tilPassword2.error = "Minimum password characters allowed is 8"
+            binding.tilPassword2.error = "Minimum password characters allowed is 8"
         }
         if (password.length > 16){
-            tilPassword2.error = "Maximum password characters allowed is 16"
+            binding.tilPassword2.error = "Maximum password characters allowed is 16"
         }
         if (password != confirmPass){
-            tilConfirmPassword2.error = "Passwords do not match"
+            binding.tilConfirmPassword2.error = "Passwords do not match"
         }
     }
 }
