@@ -1,10 +1,11 @@
-package dev.murugi.workoutlog
+package dev.murugi.workoutlog.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dev.murugi.workoutlog.R
 
 class ProfileFragment : Fragment() {
     override fun onCreateView(
